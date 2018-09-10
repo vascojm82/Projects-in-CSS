@@ -1,0 +1,135 @@
+/* Global Reset, affects all elements in the DOM */
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  list-style: none;
+}
+
+body{
+  background: #465c8f url(../img/bg-image.jpg) repeat-x;  /* Adding Gradient image & repeating it left to right to cover whole width of */
+  font-family: 'Arial', sans-serif;                       /* the viewport, gradient image is only 700px in height so adding the bottom */
+}                                                         /* image color (#465c8f) as background to fill in the rest of the viewport's height*/
+
+#container{
+  width: 718px;
+  overflow: hidden;
+  margin: 40px auto;
+}
+
+h1{
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+ul.thumbs li{
+  float: left;
+  margin-bottom: 10px;
+  margin-right: 9px;
+}
+
+ul.thumbs a{
+  display: block;
+  position: relative;
+  width: 85px;
+  height: 55px;
+  border: 4px solid transparent;
+  font: bold 12px/25px Arial, sans-serif;
+  color: #515151;
+  text-decoration: none;      /* Remove the underline for the hyperlink */
+  text-shadow: 1px 1px 0px rgba(255,255,255,.25), inset 1px 1px 0px rgba(0,0,0,.15);
+}
+
+ul.thumbs img{
+  border: #333 solid 4px;
+}
+
+ul.slides{
+  clear: both;
+  border: #333 solid 4px;
+}
+
+ul.slides,
+ul.slides li,
+ul.slides a,
+ul.slides img{
+  width: 705px;
+  height: 350px;
+  position: relative;
+}
+
+ul.slides li{
+  position: absolute;
+}
+
+ul.thumbs li a span{
+  display: none;
+}
+
+ul.thumbs li a:hover span{
+  display: block;
+  position: absolute;
+  z-index: 101;
+  bottom: -30px;
+  left: -22px;
+  width: 100px;
+  height: 25px;
+  text-align: center;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 1px 0px rgba(0,0,0,.4);
+  -moz-box-shadow: 0px 1px 0px rgba(0,0,0,.4);
+  box-shadow: 0px 1px 0px rgba(0,0,0,.4);
+  background: #fff; /* Older Browsers */
+  background: -moz-linear-gradient(top, #fff 0%, #bcbcbc 100%);
+  background: -webkit-linear-gradient(top, #fff 0%, #bcbcbc 100%);
+  background: -o-linear-gradient(top, #fff 0%, #bcbcbc 100%);
+  background: -ms-linear-gradient(top, #fff 0%, #bcbcbc 100%);
+  background: linear-gradient(top, #fff 0%, #bcbcbc 100%);
+}
+
+ul.thumbs li a:hover span:before{   /* Put the upwards arrow before the span element */
+  width: 0px;
+  height: 0px;
+  border-bottom: 5px solid #fff;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 44px;
+}
+
+ul.thumbs li:first-child a:hover span{
+  left: -3px;
+}
+
+ul.thumbs li:first-child a:hover span:before{
+  left: 25px;
+}
+
+/* Animation for slider */
+@-webkit-keyframes 'slide'{
+  0% {left: -500px;}
+  100% {left: 0px;}
+}
+
+ul.slides li:target{  /* Means on the slides <ul>, any <li> that's the target of an href somewhere else */
+  z-index: 100;
+  -webkit-animation-name: slide;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+}
+
+/* Using Not Target, does the same but more complicated */
+@-webkit-keyframes 'noTarget'{
+  0% {z-index: 75;}     /* Put this slide behind the incoming one with the higher z-index */
+  100% {z-index: 75;}   /* Same as above */
+}
+
+ul.slides li:not(:target){  /* On the slides <ul>, the displayed <li> at the moment that's NOT the target of an href somewhere else */
+  -webkit-animation-name: noTarget;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+}
