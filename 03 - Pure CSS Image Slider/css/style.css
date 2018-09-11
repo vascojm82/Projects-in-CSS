@@ -122,7 +122,7 @@ ul.slides li:target{  /* Means on the slides <ul>, any <li> that's the target of
   -webkit-animation-iteration-count: 1;
 }
 
-/* Using Not Target, does the same but more complicated */
+/* Using Not Target */
 @-webkit-keyframes 'noTarget'{
   0% {z-index: 75;}     /* Put this slide behind the incoming one with the higher z-index */
   100% {z-index: 75;}   /* Same as above */
