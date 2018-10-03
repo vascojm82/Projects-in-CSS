@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS Image Gallery</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('.filter').click(function(){
+          var $this = $(this);
+          if(!$this.hasClass('active')){
+            $('.filter').removeClass('active');   //Remove Active Class from all Tabs
+            $this.addClass('active');   //Set Active Tab on clicked tab
+            //Get data-rel
+            var $filter = $this.data('rel');
+            $filter == 'all' ?
+            $('.fancybox')
+            .attr('data-fancybox', 'gallery')
+            .not(":visible")
+            .fadeIn()
+            : //else
+            $('.fancybox')
+            .fadeOut(0) //Fade out all images
+            .filter(function(){ //Only images that match the filter (Either 'category1' or 'category2')
+              console.log("Do Filters Match?: " + $(this).data('filter') == $filter);
+              return $(this).data('filter') == $filter;
+            })
+            .attr('data-fancybox', $filter)
+            .fadeIn(1000);  //Fade in
+          }
+        })
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <img src="img/logo.png" class="logo">
+      </div>
+    </header>
+    <div class="container">
+      <section>
+        <div class="gallery">
+          <a class="fancybox" data-fancybox="gallery" data-filter="category1" href="img/image1.jpg"><img src="img/image1.jpg"></a>
+          <a class="fancybox" data-fancybox="gallery" data-filter="category1" href="img/image2.jpg"><img src="img/image2.jpg"></a>
+          <a class="fancybox" data-fancybox="gallery" data-filter="category2" href="img/image3.jpg"><img src="img/image3.jpg"></a>
+          <a class="fancybox" data-fancybox="gallery" data-filter="category1" href="img/image4.jpg"><img src="img/image4.jpg"></a>
+          <a class="fancybox" data-fancybox="gallery" data-filter="category2" href="img/image5.jpg"><img src="img/image5.jpg"></a>
+          <a class="fancybox" data-fancybox="gallery" data-filter="category2" href="img/image6.jpg"><img src="img/image6.jpg"></a>
+        </div>
+      </section>
+      <aside>
+        <nav>
+          <a data-rel="all" href="javascript:;" class="filter active">View all</a>
+          <a data-rel="category1" href="javascript:;" class="filter">Category 1</a>
+          <a data-rel="category2" href="javascript:;" class="filter">Category 2</a>
+        </nav>
+      </aside>
+    </div>
+    <footer>
+      <div class="container">
+        <p>Copyright &copy; 2018</p>
+      </div>
+    </footer>
+  </body>
+</html>
