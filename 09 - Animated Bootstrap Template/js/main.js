@@ -43,4 +43,11 @@ $(document).ready(function(){
       },
       track:true
     });
+	
+	let modal = $('.modal'); 
+	let closeBtn = $('button.close-btn');
+			
+	closeBtn.click(function(){
+		modal.modal('toggle');	
+	});
 });
