@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600" rel="stylesheet">
     <link href="css/hover.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js"></script>
     <title>Demo Bootstrap Template</title>
@@ -47,7 +49,7 @@
             <li class="dropdown hvr-curl-top-left">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <span class="caret"></span></a><span>Read</span>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Posts</a></li>
+                <li><a href="blog.html">Posts</a></li>
                 <li><a href="#">Articles</a></li>
                 <li><a href="#">Images</a></li>
               </ul>
@@ -57,38 +59,38 @@
         </div>
       </div>
     </div>
-
-    <section class="section-default section-showcase section-form">
-      <div class="container">
-        <div class="row">
-          <!-- Header subsection -->
-						<div class="col-md-12">
-								<h2>Contact Us</h2>
-						</div>
-
-						<!-- Contact Form -->
-						<div class="col-md-12 contact-form">
-							<form>
-									<div class="form-group row">
-							      <label for="name" class="col-sm-12 col-form-label col-form-label-md">Name</label>
-							      <div class="col-sm-12">
-							        <input type="text" class="form-control form-control-md" id="name" placeholder="John Smith">
-							      </div>
-							    </div>
-							    <div class="form-group row">
-							      <label for="email" class="col-sm-12 col-form-label col-form-label-md">Email</label>
-							      <div class="col-sm-12">
-							        <input type="email" class="form-control form-control-md" id="email" placeholder="email@gmail.com">
-							      </div>
-							    </div>
-									<div class="form-group">
-								    <label for="message">Message</label>
-								    <textarea class="form-control" id="message" rows="10"></textarea>
-								  </div>
-									<button type="submit" class="btn btn-primary hvr-grow">Submit</button>
-							</form>
-						</div>
+    <section id="contact-section" class="contact section-default">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-header">
+            <h2 id="contact" class="text-center">Contact Us</h2>
+          </div>
         </div>
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-4 col-md-offset-2">
+              <div class="spacer" id='map'></div>
+            </div>
+            <div class="col-md-4">
+              <form class="form">
+              <div class="form-group">
+                <input class="form-control" placeholder="Name" type="text">
+              </div>
+              <div class="form-group">
+                <input class="form-control" placeholder="Email" type="email">
+              </div>
+              <div class="form-group">
+                <input class="form-control" placeholder="Subject" type="text">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" rows="10"></textarea>
+              </div>
+              <div class="form-group">
+                <input class="btn btn-primary btn-block submit hvr-round-corners" type="submit">
+              </div>
+              </form>
+            </div>
+          </div>
       </div>
     </section>
     <footer class="footer-main">

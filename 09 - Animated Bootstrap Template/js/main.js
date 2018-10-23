@@ -43,11 +43,20 @@ $(document).ready(function(){
       },
       track:true
     });
-	
-	let modal = $('.modal'); 
+
+	let modal = $('.modal');
 	let closeBtn = $('button.close-btn');
-			
+
 	closeBtn.click(function(){
-		modal.modal('toggle');	
+		modal.modal('toggle');
 	});
+
+  //Leflet.JS with OpenStreetMap
+  var map = L.map('map').setView([25.77427, -80.19366], 10);
+  L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    subdomains: ['a','b','c']
+  }).addTo( map );
+  L.marker([25.77427, -80.19366]).addTo(map)
+		.bindPopup("We're Here.").openPopup();
 });
