@@ -86,7 +86,7 @@ a{
   color: #fff;
 }
 
-.dropdown-menu li a{
+ul.dropdown-menu li a{
   background-color: #FFF;
   color: #777;
 }
