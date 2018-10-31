@@ -86,6 +86,11 @@ a{
   color: #fff;
 }
 
+.dropdown-menu li{
+  background-color: #FFF;
+  color: #777;
+}
+
 .nav li.active a{
   background-color: #406c96 !important;
   color: #fff !important;
